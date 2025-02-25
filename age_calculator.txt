@@ -1,0 +1,41 @@
+
+import random  # Importation d'un module pour générer un nombre aléatoire
+
+# Fonction pour afficher un message de bienvenue
+def bienvenue():
+    print("Bienvenue dans notre programme interactif !")
+
+# Demander le nom et l'âge de l'utilisateur
+nom = input("Entrez votre nom : ")
+age = int(input("Entrez votre âge : "))
+
+# Utilisation de condition pour afficher un message adapté à l'âge
+if age < 18:
+    print(f"Salut {nom}, tu es encore jeune, amuse-toi bien !")
+else:
+    print(f"Bonjour {nom}, bienvenue dans ce programme !")
+
+# Définition d'une fonction pour le jeu de devinette
+def jeu():
+    print("\nJe vais penser à un nombre entre 1 et 10, essaie de deviner !")
+    nombre_secret = random.randint(1, 10)  # Génération d'un nombre aléatoire
+    essais = 3  # Nombre d'essais
+
+    for i in range(essais):  # Boucle pour donner plusieurs chances
+        choix = int(input("Devine le nombre : "))
+
+        if choix == nombre_secret:
+            print("Bravo ! Tu as trouvé le bon nombre !")
+            return  # Quitter la fonction en cas de succès
+        elif choix < nombre_secret:
+            print("Trop bas ! Essaie encore.")
+        else:
+            print("Trop haut ! Essaie encore.")
+
+    print(f"Dommage ! Le nombre était {nombre_secret}.")
+
+# Appel des fonctions
+bienvenue()
+jeu()
+
+print("\nMerci d'avoir utilisé ce programme. À bientôt !")
